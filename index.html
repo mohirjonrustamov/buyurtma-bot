@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Yangi buyurtma</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="page">
+
+  <div class="header">
+    <h1>Yangi buyurtma</h1>
+    <p class="subtitle">To'lov ma'lumotlarini kiriting</p>
+  </div>
+
+  <form id="orderForm">
+
+    <div class="field">
+      <label for="order_num">Заказ №</label>
+      <input type="text" id="order_num" placeholder="Masalan: ORD-1024" required />
+      <span class="error" id="err_order_num"></span>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Оплата 1</div>
+
+      <div class="field">
+        <label for="pay1_date">Оплата на (сана)</label>
+        <input type="date" id="pay1_date" required />
+        <span class="error" id="err_pay1_date"></span>
+      </div>
+
+      <div class="field">
+        <label for="pay1_amount">Сумма</label>
+        <input type="number" id="pay1_amount" inputmode="decimal" min="0" step="any" placeholder="0" required />
+        <span class="error" id="err_pay1_amount"></span>
+      </div>
+
+      <div class="field">
+        <label>Валюта</label>
+        <div class="chip-group" id="currency1_group" data-target="pay1_currency">
+          <button type="button" class="chip" data-value="сум">сум</button>
+          <button type="button" class="chip" data-value="долл">долл</button>
+          <button type="button" class="chip" data-value="евро">евро</button>
+          <button type="button" class="chip" data-value="рубл">рубл</button>
+          <button type="button" class="chip" data-value="другой">другой</button>
+        </div>
+        <input type="hidden" id="pay1_currency" />
+        <span class="error" id="err_pay1_currency"></span>
+      </div>
+    </div>
+
+    <button type="button" class="add-payment-btn" id="togglePay2">
+      + Yana to'lov qo'shish (Оплата 2)
+    </button>
+
+    <div class="section" id="pay2Section" style="display:none;">
+      <div class="section-title">
+        Оплата 2
+        <button type="button" class="remove-btn" id="removePay2">✕ olib tashlash</button>
+      </div>
+
+      <div class="field">
+        <label for="pay2_date">Оплата на (сана)</label>
+        <input type="date" id="pay2_date" />
+      </div>
+
+      <div class="field">
+        <label for="pay2_amount">Сумма</label>
+        <input type="number" id="pay2_amount" inputmode="decimal" min="0" step="any" placeholder="0" />
+      </div>
+
+      <div class="field">
+        <label>Валюта</label>
+        <div class="chip-group" id="currency2_group" data-target="pay2_currency">
+          <button type="button" class="chip" data-value="сум">сум</button>
+          <button type="button" class="chip" data-value="долл">долл</button>
+          <button type="button" class="chip" data-value="евро">евро</button>
+          <button type="button" class="chip" data-value="рубл">рубл</button>
+          <button type="button" class="chip" data-value="другой">другой</button>
+        </div>
+        <input type="hidden" id="pay2_currency" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="due_date">Срок оплаты (дата)</label>
+      <input type="date" id="due_date" required />
+      <span class="error" id="err_due_date"></span>
+    </div>
+
+  </form>
+
+  <div class="banner" id="banner"></div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
